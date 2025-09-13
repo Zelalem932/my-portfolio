@@ -1,0 +1,113 @@
+:root{
+  --nav-bg: #0f1724;
+  --nav-text: #ffffff;
+  --nav-accent: #06b6d4;
+}
+
+/* reset basics for nav */
+.nav-wrap { width:100%; background:var(--nav-bg); color:var(--nav-text); position:relative; z-index:50; }
+.navbar {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0.6rem 1rem;
+  gap:1rem;
+}
+
+/* logo */
+.nav-logo {
+  color:var(--nav-text);
+  text-decoration:none;
+  font-weight:600;
+  font-size:1.05rem;
+  letter-spacing:0.2px;
+}
+
+/* hamburger button - touch friendly (min 44x44) */
+.nav-toggle {
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  border-radius:8px;
+  border:0;
+  background:transparent;
+  color:var(--nav-text);
+  cursor:pointer;
+  padding:6px;
+}
+.nav-toggle:focus { outline:2px solid var(--nav-accent); outline-offset:2px; }
+
+/* primary nav links */
+.nav-menu {
+  display:flex;
+  gap:1.25rem;
+  list-style:none;
+  margin:0;
+  padding:0;
+  align-items:center;
+}
+.nav-menu a {
+  color:var(--nav-text);
+  text-decoration:none;
+  padding:0.5rem 0.35rem;
+  border-radius:6px;
+  font-weight:500;
+}
+.nav-menu a:focus, .nav-menu a:hover {
+  background:rgba(255,255,255,0.04);
+  outline:none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-toggle { display:flex; }
+
+  .nav-menu {
+    position: absolute;
+    top: 64px;
+    right: 12px;
+    width: min(92%, 300px);
+    max-width:320px;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(15,23,36,0.98), rgba(10,14,22,0.98));
+    padding:0.75rem;
+    gap:0.25rem;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    border-radius:10px;
+    transform-origin: top right;
+    transform: scale(0.95);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .nav-menu.open {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* make interactive area larger for links */
+  .nav-menu a {
+    display:block;
+    padding:0.9rem 0.9rem;
+    font-size:1rem;
+  }
+}
+
+/* utility for screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}

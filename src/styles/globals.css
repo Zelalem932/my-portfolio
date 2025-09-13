@@ -1,0 +1,8 @@
+/* basic reset and dark background for the hero */
+html,body,#root {
+  height: 100%;
+  margin: 0;
+  background: #000; /* adjust as needed */
+  color: #fff;
+}
+* { box-sizing: border-box; }

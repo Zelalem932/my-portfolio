@@ -1,0 +1,10 @@
+/* transparent overlay that sits above the hero image but below content */
+.lr2-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 1; /* below nav/text we place at 6 later */
+}
